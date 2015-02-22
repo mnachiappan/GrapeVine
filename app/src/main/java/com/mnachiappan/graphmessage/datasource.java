@@ -68,15 +68,16 @@ public class datasource {
         return comments;
     }
 
-    public void deleteAllComment(long time) {
-        ArrayList<Conversation> ac = getAllConversation(time);
-
-        for (Conversation comment : ac) {
-            long id = comment.getId();
-            System.out.println("Comment deleted with id: " + id);
-            database.delete(SQLdb.TABLE_COMMENTS, SQLdb.COLUMN_ID
-                    + " = " + id, null);
-        }
+    public void deleteAllComment() {
+//        ArrayList<Conversation> ac = getAllConversation(time);
+//
+//        for (Conversation comment : ac) {
+//            long id = comment.getId();
+//            System.out.println("Comment deleted with id: " + id);
+//            database.delete(SQLdb.TABLE_COMMENTS, SQLdb.COLUMN_ID
+//                    + " = " + id, null);
+//        }
+        dbHelper.onUpgrade(database, 1, 2);
     }
 
 

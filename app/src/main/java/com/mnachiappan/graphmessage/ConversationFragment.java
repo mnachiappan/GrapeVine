@@ -10,6 +10,7 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -17,7 +18,7 @@ import java.util.List;
  */
 public class ConversationFragment extends Fragment {
 
-    private ArrayAdapter<String> mAdapter;
+    private ConversationAdapter mAdapter;
 
     public ConversationFragment() {
     }
@@ -27,14 +28,19 @@ public class ConversationFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
 
-        String[] conversations = new String[] {"Hello", "Bye"};
-        List<String> conversationsList = new ArrayList<String>(Arrays.asList(conversations));
+        Conversation[] conversations = new Conversation[] {
+                new Conversation("fjdskl", "fjdlsk", 21),
+                new Conversation("conversation2", "author", 21),
+
+        };
+        ArrayList<Conversation> conversationsList = new ArrayList<Conversation>(Arrays.asList(conversations));
 
         // create ListView
         ListView listView = (ListView) rootView.findViewById(R.id.listview_conversation);
         // create adapter
-        mAdapter = new ArrayAdapter<String>(this.getActivity(), R.layout.list_item_conversation, R.id.list_item_conversation_textview, conversationsList);
+        //mAdapter = new ArrayAdapter<String>(this.getActivity(), R.layout.list_item_conversation, R.id.list_item_conversation_textview, conversationsList);
         // hook adapter with ListView
+        mAdapter = new ConversationAdapter(this.getActivity(), R.layout.list_item_conversation, conversationsList);
         listView.setAdapter(mAdapter);
         return rootView;
     }
