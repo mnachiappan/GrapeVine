@@ -18,8 +18,10 @@ public class PostMessage extends AsyncTask<Conversation, Void, List<JSONObject>>
 
 
     private Context mContext;
-    public PostMessage (Context context){
+    private ConversationAdapter mAdapter;
+    public PostMessage (Context context, ConversationAdapter adapter){
         mContext = context;
+        mAdapter = adapter;
     }
 
     @Override
@@ -72,5 +74,7 @@ public class PostMessage extends AsyncTask<Conversation, Void, List<JSONObject>>
             }
         }
         db.close();
+        GetMessages getMsg = new GetMessages(mContext, mAdapter);
+        getMsg.execute(mAdapter.getItem(mAdapter.getCount() - 1).getDate());
     }
 }

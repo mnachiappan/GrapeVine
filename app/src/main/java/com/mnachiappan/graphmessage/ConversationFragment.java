@@ -56,7 +56,7 @@ public class ConversationFragment extends Fragment {
             public void onClick(View v) {
                 EditText messageText = (EditText) rootView.findViewById(R.id.messageBox);
                 Conversation convo = new Conversation(messageText.getText().toString(), "Chair", 1);
-                PostMessage post = new PostMessage(getActivity());
+                PostMessage post = new PostMessage(getActivity(), mAdapter);
                 post.execute(convo);
 
             }
