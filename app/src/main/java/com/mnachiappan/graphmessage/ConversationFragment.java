@@ -62,12 +62,12 @@ public class ConversationFragment extends Fragment {
             }
 
         });
-
         Button refreshButton = (Button) rootView.findViewById(R.id.refreshBtn);
         refreshButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-
+                GetMessages getMsg = new GetMessages(getActivity(), mAdapter);
+                getMsg.execute(mAdapter.getItem(mAdapter.getCount() - 1).getDate());
             }
         });
 
