@@ -32,7 +32,6 @@ public class ConversationAdapter extends ArrayAdapter<Conversation> {
             TextView date_text = (TextView) v.findViewById(R.id.list_item_conversation_date);
             TextView author_text = (TextView) v.findViewById(R.id.list_item_conversation_author);
             conversation_text.setText(i.getMessage());
-            date_text.setText(i.getDate().toString());
             author_text.setText(i.getAuthor());
 
         }

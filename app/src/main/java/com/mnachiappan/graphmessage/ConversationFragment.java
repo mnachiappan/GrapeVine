@@ -29,8 +29,8 @@ public class ConversationFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
 
         Conversation[] conversations = new Conversation[] {
-                new Conversation("fjdskl", "fjdlsk", new Date()),
-                new Conversation("conversation2", "author", new Date()),
+                new Conversation("fjdskl", "fjdlsk", 21),
+                new Conversation("conversation2", "author", 21),
 
         };
         ArrayList<Conversation> conversationsList = new ArrayList<Conversation>(Arrays.asList(conversations));

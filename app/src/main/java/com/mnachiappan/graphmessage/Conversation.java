@@ -12,13 +12,16 @@ public class Conversation {
     private String mAuthor;
     private long mDate;
 
-    /*
-    public Conversation (String mMessage, String mAuthor, Date mDate) {
+    public Conversation() {
+
+    }
+
+    public Conversation (String mMessage, String mAuthor, long mDate) {
         this.mMessage = mMessage;
         this.mAuthor = mAuthor;
         this.mDate = mDate;
     }
-    */
+
     public String getMessage() {
         return mMessage;
     }
