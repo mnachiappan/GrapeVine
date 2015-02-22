@@ -58,6 +58,8 @@ public class ConversationFragment extends Fragment {
                 Conversation convo = new Conversation(messageText.getText().toString(), "Chair", 1);
                 PostMessage post = new PostMessage(getActivity(), mAdapter);
                 post.execute(convo);
+                messageText.clearFocus();
+                messageText.setText("");
 
             }
 

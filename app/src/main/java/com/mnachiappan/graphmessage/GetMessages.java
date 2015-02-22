@@ -56,7 +56,9 @@ public class GetMessages extends AsyncTask<Long, Void, JSONObject> {
                 String author = convoObj.getString("author");
                 long id = Long.parseLong(convoObj.getString("_id"));
                 db.createConversation(author, status, id);
-                mAdapter.add(new Conversation(status, author, id));
+                Conversation convoAdd = new Conversation(status, author, id);
+                convoAdd.timez = convoObj.getString("time");
+                mAdapter.add(convoAdd);
             }
             db.close();
         } catch (JSONException e) {
