@@ -10,6 +10,8 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
+
+
 public class datasource {
 
     // Database fields
@@ -49,6 +51,25 @@ public class datasource {
         cursor.close();
         return newConvo;
     }
+
+    public ArrayList<Conversation> getAllConversation(long time) {
+        ArrayList<Conversation> comments = new ArrayList<Conversation>();
+
+        Cursor cursor = database.query(SQLdb.TABLE_COMMENTS,
+                allColumns, SQLdb.COLUMN_TIME + " > " + time, null,
+                null, null, null);
+
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            Conversation convo = cursorToConvo(cursor);
+            comments.add(convo);
+            cursor.moveToNext();
+        }
+        // make sure to close the cursor
+        cursor.close();
+        return comments;
+    }
+
 
     private Conversation cursorToConvo(Cursor cursor) {
         Conversation convo = new Conversation();
