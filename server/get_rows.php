@@ -16,14 +16,12 @@ $db = new DB_CONNECT();
  
 // check for post data
 if (isset($_GET["_id"])) {
-    $_id = $_GET['_id'];
+    $_id = intval($_GET['_id']);
 
     // get a product from products table
-    $result = mysql_query("SELECT *FROM products WHERE _id > $_id");
+    $result = mysql_query("SELECT *FROM statuses WHERE _id > $_id");
 }
 
-// get all products from products table
-$result = mysql_query("SELECT *FROM products") or die(mysql_error());
  
 // check for empty result
 if (mysql_num_rows($result) > 0) {
