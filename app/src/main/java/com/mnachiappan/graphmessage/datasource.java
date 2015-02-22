@@ -32,7 +32,7 @@ public class datasource {
         dbHelper.close();
     }
 
-    public long createConversation(String author, String status, String time) {
+    public long createConversation(String author, String status, long time) {
         ContentValues values = new ContentValues();
         values.put(SQLdb.COLUMN_AUTHOR, author);
         values.put(SQLdb.COLUMN_STATUS, status);
@@ -68,6 +68,17 @@ public class datasource {
         // make sure to close the cursor
         cursor.close();
         return comments;
+    }
+
+    public void deleteAllComment(long time) {
+        ArrayList<Conversation> ac = getAllConversation(time);
+
+        for (Conversation comment : ac) {
+            long id = comment.getId();
+            System.out.println("Comment deleted with id: " + id);
+            database.delete(SQLdb.TABLE_COMMENTS, SQLdb.COLUMN_ID
+                    + " = " + id, null);
+        }
     }
 
 
