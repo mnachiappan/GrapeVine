@@ -20,6 +20,7 @@ if (isset($_GET["_id"])) {
 
     // get a product from products table
     $result = mysql_query("SELECT *FROM products WHERE _id > $_id");
+}
 
 // get all products from products table
 $result = mysql_query("SELECT *FROM products") or die(mysql_error());
