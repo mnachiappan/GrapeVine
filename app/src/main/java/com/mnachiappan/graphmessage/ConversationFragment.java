@@ -31,11 +31,11 @@ public class ConversationFragment extends Fragment {
         List<String> conversationsList = new ArrayList<String>(Arrays.asList(conversations));
 
         // create ListView
-        ListView listView = (ListView) rootView.findViewById(R.id.listview_conversation);
+//        ListView listView = (ListView) rootView.findViewById(R.id.listview_conversation);
         // create adapter
-        mAdapter = new ArrayAdapter<String>(this.getActivity(), R.layout.list_item_conversation, R.id.list_item_conversation_textview, conversationsList);
+//        mAdapter = new ArrayAdapter<String>(this.getActivity(), R.layout.list_item_conversation, R.id.list_item_conversation_textview, conversationsList);
         // hook adapter with ListView
-        listView.setAdapter(mAdapter);
+//        listView.setAdapter(mAdapter);
         return rootView;
     }
 }

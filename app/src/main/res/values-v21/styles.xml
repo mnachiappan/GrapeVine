@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.GraphMessage" parent="Theme.Base">
+        <item name="android:navigationBarColor">#C800D4</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+</resources>
