@@ -35,7 +35,7 @@ if (mysql_num_rows($result) > 0) {
         $convo["_id"] = $row["_id"];
         $convo["author"] = $row["author"];
         $convo["status"] = $row["status"];
-        $convo["time"] = $row["time"];
+        $convo["time"] = date("H:i", strtotime($row["time"]));
  
         // push single product into final response array
         array_push($response["convos"], $convo);
