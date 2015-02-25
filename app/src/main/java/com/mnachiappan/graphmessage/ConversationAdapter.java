@@ -18,8 +18,6 @@ public class ConversationAdapter extends ArrayAdapter<Conversation> {
 
     public ConversationAdapter(Context context, int textViewResourceId, ArrayList<Conversation> mConversations) {
         super(context, textViewResourceId, mConversations);
-        //To display posts in reverse chronological order
-        Collections.reverse(mConversations);
         this.mConversations = mConversations;
     }
 

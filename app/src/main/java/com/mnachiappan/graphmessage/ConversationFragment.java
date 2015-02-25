@@ -37,10 +37,14 @@ public class ConversationFragment extends Fragment {
         final View rootView = inflater.inflate(R.layout.fragment_main, container, false);
 
         Conversation[] conversations = new Conversation[] {
-                new Conversation("fjdskl", "fjdlsk", 21),
-                new Conversation("conversation2", "author", 21),
+                //new Conversation("fjdskl", "fjdlsk", 21),
+                //new Conversation("conversation2", "author", 21),
 
         };
+        //Secret Names
+        final String[] codeNames = {"Aladdin", "Apollo", "Brock", "Cinnamon", "Cupid", "Eclipse", "Luna", "Mercury", "Neptune", "Ubuntu", "Red Hat", "Rubicon", "Sona", "Titan", "Pluto", "Venus", "Oceania"};
+        final int numNames = codeNames.length;
+
         ArrayList<Conversation> conversationsList = new ArrayList<Conversation>(Arrays.asList(conversations));
 
         // create ListView
@@ -55,7 +59,7 @@ public class ConversationFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 EditText messageText = (EditText) rootView.findViewById(R.id.messageBox);
-                Conversation convo = new Conversation(messageText.getText().toString(), "Chair", 1);
+                Conversation convo = new Conversation(messageText.getText().toString(), codeNames[(int)Math.floor(Math.random() * numNames)], 1);
                 PostMessage post = new PostMessage(getActivity(), mAdapter);
                 post.execute(convo);
                 messageText.clearFocus();

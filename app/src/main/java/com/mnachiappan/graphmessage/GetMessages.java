@@ -51,7 +51,7 @@ public class GetMessages extends AsyncTask<Long, Void, JSONObject> {
             JSONArray convoArray = object.getJSONArray("convos");
             datasource db = new datasource(mContext);
             db.open();
-            for (int i = convoArray.length() - 1; i >= 0; i--){
+            for (int i = 0; i < convoArray.length(); i++){
                 JSONObject convoObj = convoArray.getJSONObject(i);
                 String status = convoObj.getString("status");
                 String author = convoObj.getString("author");
