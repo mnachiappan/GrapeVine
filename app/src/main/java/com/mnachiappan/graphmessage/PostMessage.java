@@ -75,6 +75,13 @@ public class PostMessage extends AsyncTask<Conversation, Void, List<JSONObject>>
         }
         db.close();
         GetMessages getMsg = new GetMessages(mContext, mAdapter);
-        getMsg.execute(mAdapter.getItem(mAdapter.getCount() - 1).getDate());
+
+        if (mAdapter.getCount() == 0) {
+            getMsg.execute(0L);
+        }
+        else {
+            getMsg.execute(mAdapter.getItem(mAdapter.getCount() - 1).getDate());
+        }
+
     }
 }

@@ -37,8 +37,7 @@ public class ConversationFragment extends Fragment {
         final View rootView = inflater.inflate(R.layout.fragment_main, container, false);
 
         Conversation[] conversations = new Conversation[] {
-                //new Conversation("fjdskl", "fjdlsk", 21),
-                //new Conversation("conversation2", "author", 21),
+                //new Conversation("Conversation1", "author1", 1),
 
         };
         //Secret Names
@@ -73,7 +72,14 @@ public class ConversationFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 GetMessages getMsg = new GetMessages(getActivity(), mAdapter);
-                getMsg.execute(mAdapter.getItem(mAdapter.getCount() - 1).getDate());
+
+                if (mAdapter.getCount() == 0) {
+                    getMsg.execute(0L);
+                }
+                else {
+                    getMsg.execute(mAdapter.getItem(mAdapter.getCount() - 1).getDate());
+                }
+
             }
         });
 
