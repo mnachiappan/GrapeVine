@@ -36,6 +36,7 @@ public class ConversationAdapter extends ArrayAdapter<Conversation> {
             TextView author_text = (TextView) v.findViewById(R.id.list_item_conversation_author);
             conversation_text.setText(i.getMessage());
             author_text.setText(i.getAuthor());
+            date_text.setText(i.timez);
 
         }
         return v;

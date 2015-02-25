@@ -11,6 +11,7 @@ public class Conversation {
     private String mMessage;
     private String mAuthor;
     private long mDate;
+    public String timez;
 
     public Conversation() {
 
@@ -52,6 +53,10 @@ public class Conversation {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public void setTimez(String timez) {
+        this.timez = timez;
     }
 
 }
